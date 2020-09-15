@@ -1,0 +1,19 @@
+body{
+    background-color: aliceblue;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.container-fluid {
+    padding: 1% 15%;
+}
+
+/* Nav bar */
+
+.navbar-brand{
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+#carousel{
+    padding: 1% 15%;
+}
