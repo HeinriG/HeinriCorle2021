@@ -1,18 +1,24 @@
 :root{
-    --main-bg-color: aliceblue;
+    --main-bg-color: rgb(243, 243, 243);
+    --content-bg-color: rgb(158, 231, 253);
     --font-size-s: 16px;
     --font-size-m: 20px;
     --font-size-l: 24px;
 }
 
-body{
-    background-color: var(--main-bg-color);
+body{    
     font-family: 'Ubuntu', sans-serif;
     text-align: center;
 }
 
 .background{
+    background-color: var(--main-bg-color);
     padding: 0;
+    
+}
+
+.page-content{
+    background-color: var(--content-bg-color);
 }
 
 hr {  
@@ -36,7 +42,8 @@ hr {
 /* Header */
 
 .header-logo{
-    text-align: center;
+    text-align: center;    
+    max-width: 300px;
 }
 
 /* Nav bar */
