@@ -164,3 +164,33 @@ body{
     margin-top: var(--margin-s);
 }
 
+/* Accomodation */
+
+#accomodation-info{
+    background-color: var(--color-neutral);
+    padding: var(--padding-l) 0;
+}
+
+#accomodation-info hr{
+    border-color: var(--color-secondary); 
+    width: 300px;
+    border-width: 3px;
+}
+
+.accomodation-info-title{
+    font-family: var(--font-cursive);
+    font-size: var(--font-size-l);
+    color: var(--color-secondary); 
+    line-height: 1;
+    margin-top: var(--margin-s);
+}
+
+.dot{
+    height: 40px;
+    width: 40px;
+    background-color: #bbb;
+    border-radius: 50%;    
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
