@@ -194,3 +194,12 @@ body{
     align-items: center;
     justify-content: center;
 }
+
+.card-text-item{
+    margin: 30px 0;
+    text-align: left;
+}
+
+.card-text-item .item-text{
+    margin-left: 20px;    
+}
