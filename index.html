@@ -54,9 +54,9 @@
             <a class="nav-link active" href="#"
               >Home <span class="sr-only">(current)</span></a
             >
-            <a class="nav-link" href="#">Destination</a>
-            <a class="nav-link" href="#">Accomodation</a>
-            <button type="button" class="nav-link btn btn-rsvp">RSVP</button>
+            <a class="nav-link" href="#destination-info">Destination</a>
+            <a class="nav-link" href="#accomodation-info">Accomodation</a>
+            <button type="button" class="nav-link btn btn-custom">RSVP</button>
           </div>
         </div>
       </nav>
@@ -150,141 +150,675 @@
         <div class="row">
           <div class="col-xl-8 mx-auto">
             <div
-              id="accomodation-carousel"
+              id="accomodation-info-carousel"
               class="carousel slide"
               data-ride="carousel"
             >
-              <div class="carousel-inner">
-                <div class="carousel-item active">                                  
-                    
-                      <div class="card">
-                        <img
-                          class="card-img-top"
-                          src="./images/accomodation/eenuurkop.jpg"
-                          alt="Card image cap"
-                        />
-                        <div class="card-body">
-                          <h4 class="card-title">Card title</h4>
-                          <p class="card-text">
-                            Some quick example text to build on the card title
-                            and make up the bulk of the card's content.
-                          </p>
-                          <a class="btn btn-primary">Button</a>
+              <div class="carousel-inner w-100" role="listbox">
+                <!-- Jan Harmsgat Country House -->
+                <div class="carousel-item active">
+                  <div class="col-lg-4 col-md-6">
+                    <div class="card">
+                      <img
+                        class="card-img-top"
+                        src="./images/accomodation/JanHarmsGat.png"
+                        alt="Card image cap"
+                      />
+                      <div class="card-body">
+                        <h4 class="card-title">Jan Harmsgat Country House</h4>
+                        <div class="card-text-item">
+                          <div>
+                            <span
+                              data-jam="map-marker"
+                              data-fill="#000000"
+                              data-width="24"
+                              data-height="24"
+                            ></span
+                            ><span class="item-text"
+                              >R60, Swellendam, Suid-Afrika</span
+                            >
+                          </div>
                         </div>
+                        <div class="card-text-item">
+                          <div>
+                            <span
+                              data-jam="ruler"
+                              data-fill="#000000"
+                              data-width="24"
+                              data-height="24"
+                            ></span
+                            ><span class="item-text">5 min (7,6km)</span>
+                          </div>
+                        </div>
+                        <div class="card-text-item">
+                          <div>
+                            <span
+                              data-jam="envelope"
+                              data-fill="#000000"
+                              data-width="24"
+                              data-height="24"
+                            ></span
+                            ><span class="item-text"
+                              >reservations@janharmsgat.com</span
+                            >
+                          </div>
+                        </div>
+                        <div class="card-text-item">
+                          <div>
+                            <span
+                              data-jam="phone"
+                              data-fill="#000000"
+                              data-width="24"
+                              data-height="24"
+                            ></span
+                            ><span class="item-text">+27 87 012 5356</span>
+                          </div>
+                        </div>
+                        <a class="btn btn-custom" href="http://www.janharmsgat.com/" target="_blank">Book</a>
                       </div>
-                    </div>
-
-                    <div class="col-4">
-                      <div class="card">
-                        <img
-                          class="card-img-top"
-                          src="./images/accomodation/JanHarmsGat.jpg"
-                          alt="Card image cap"
-                        />
-                        <div class="card-body">
-                          <h4 class="card-title">Jan Harmsgat Country House</h4>
-                          <div class="card-text-item">
-                            <div>
-                              <span
-                                data-jam="map-marker"
-                                data-fill="#000000"
-                                data-width="24"
-                                data-height="24"
-                              ></span
-                              ><span class="item-text"
-                                >R60, Swellendam, Suid-Afrika</span
-                              >
-                            </div>
+                    </div> 
+                  </div>
+                </div>
+                <!-- Fonteinskloof Guest Farm -->
+                <div class="carousel-item">
+                  <div class="col-lg-4 col-md-6">
+                    <div class="card">
+                      <img
+                        class="card-img-top"
+                        src="./images/accomodation/FonteinsKloof.png"
+                        alt="Card image cap"
+                      />
+                      <div class="card-body">
+                        <h4 class="card-title">Fonteinskloof Guest Farm</h4>
+                        <div class="card-text-item">
+                          <div>
+                            <span
+                              data-jam="map-marker"
+                              data-fill="#000000"
+                              data-width="24"
+                              data-height="24"
+                            ></span
+                            ><span class="item-text"
+                              >R60, Suid-Afrika</span
+                            >
                           </div>
-                          <div class="card-text-item">
-                            <div>
-                              <span
-                                data-jam="ruler"
-                                data-fill="#000000"
-                                data-width="24"
-                                data-height="24"
-                              ></span
-                              ><span class="item-text">5min (7,6km)</span>
-                            </div>
-                          </div>
-                          <div class="card-text-item">
-                            <div>
-                              <span
-                                data-jam="envelope"
-                                data-fill="#000000"
-                                data-width="24"
-                                data-height="24"
-                              ></span
-                              ><span class="item-text"
-                                >reservations@janharmsgat.com</span
-                              >
-                            </div>
-                          </div>
-                          <div class="card-text-item">
-                            <div>
-                              <span
-                                data-jam="phone"
-                                data-fill="#000000"
-                                data-width="24"
-                                data-height="24"
-                              ></span
-                              ><span class="item-text">+27 87 012 5356</span>
-                            </div>
-                          </div>
-                          <a class="btn btn-primary">Button</a>
                         </div>
-                      </div> 
+                        <div class="card-text-item">
+                          <div>
+                            <span
+                              data-jam="ruler"
+                              data-fill="#000000"
+                              data-width="24"
+                              data-height="24"
+                            ></span
+                            ><span class="item-text">5 min (7.6 km)</span>
+                          </div>
+                        </div>
+                        <div class="card-text-item">
+                          <div>
+                            <span
+                              data-jam="envelope"
+                              data-fill="#000000"
+                              data-width="24"
+                              data-height="24"
+                            ></span
+                            ><span class="item-text"
+                              >williamj17@gmail.com</span
+                            >
+                          </div>
+                        </div>
+                        <div class="card-text-item">
+                          <div>
+                            <span
+                              data-jam="phone"
+                              data-fill="#000000"
+                              data-width="24"
+                              data-height="24"
+                            ></span
+                            ><span class="item-text">+27 83 268 8273</span>
+                          </div>
+                        </div>
+                        <a class="btn btn-custom" href="http://www.fonteinskloof.com/" target="_blank">Book</a>
+                      </div>
+                    </div> 
+                  </div>
                 </div>
-                
+                <!-- Bonfrutti -->
                 <div class="carousel-item">
-                  <img
-                    src="./images/accomodation/eenuurkop.jpg"
-                    class="d-block w-100"
-                    alt="..."
-                  />
+                  <div class="col-lg-4 col-md-6">
+                    <div class="card">
+                      <img
+                        class="card-img-top"
+                        src="./images/accomodation/BonFrutti.png"
+                        alt="Card image cap"
+                      />
+                      <div class="card-body">
+                        <h4 class="card-title">Bonfrutti</h4>
+                        <div class="card-text-item">
+                          <div>
+                            <span
+                              data-jam="map-marker"
+                              data-fill="#000000"
+                              data-width="24"
+                              data-height="24"
+                            ></span
+                            ><span class="item-text"
+                              >Boesmanspad, R60 tussen Ashton en Swellendam, Bonnievale, Suid-Afrika</span
+                            >
+                          </div>
+                        </div>
+                        <div class="card-text-item">
+                          <div>
+                            <span
+                              data-jam="ruler"
+                              data-fill="#000000"
+                              data-width="24"
+                              data-height="24"
+                            ></span
+                            ><span class="item-text">7 min (11.1 km)</span>
+                          </div>
+                        </div>
+                        <div class="card-text-item">
+                          <div>
+                            <span
+                              data-jam="envelope"
+                              data-fill="#000000"
+                              data-width="24"
+                              data-height="24"
+                            ></span
+                            ><span class="item-text"
+                              >info@bonfrutti.co.za</span
+                            >
+                          </div>
+                        </div>
+                        <div class="card-text-item">
+                          <div>
+                            <span
+                              data-jam="phone"
+                              data-fill="#000000"
+                              data-width="24"
+                              data-height="24"
+                            ></span
+                            ><span class="item-text">+27 84 549 2924</span>
+                          </div>
+                        </div>
+                        <a class="btn btn-custom" href="http://www.bonfrutti.co.za/" target="_blank">Book</a>
+                      </div>
+                    </div> 
+                  </div>
                 </div>
+                <!-- Spanspek Se Plek Akkommodasie -->
                 <div class="carousel-item">
-                  <img
-                    src="./images/accomodation/JanHarmsGat.jpg"
-                    class="d-block w-100"
-                    alt="..."
-                  />
+                  <div class="col-lg-4 col-md-6">
+                    <div class="card">
+                      <img
+                        class="card-img-top"
+                        src="./images/accomodation/SpanspekSePlek.png"
+                        alt="Card image cap"
+                      />
+                      <div class="card-body">
+                        <h4 class="card-title">Spanspek Se Plek Akkommodasie</h4>
+                        <div class="card-text-item">
+                          <div>
+                            <span
+                              data-jam="map-marker"
+                              data-fill="#000000"
+                              data-width="24"
+                              data-height="24"
+                            ></span
+                            ><span class="item-text"
+                              >Robertson, Suid-Afrika</span
+                            >
+                          </div>
+                        </div>
+                        <div class="card-text-item">
+                          <div>
+                            <span
+                              data-jam="ruler"
+                              data-fill="#000000"
+                              data-width="24"
+                              data-height="24"
+                            ></span
+                            ><span class="item-text">10 min (15.6 km)</span>
+                          </div>
+                        </div>
+                        <div class="card-text-item">
+                          <div>
+                            <span
+                              data-jam="envelope"
+                              data-fill="#000000"
+                              data-width="24"
+                              data-height="24"
+                            ></span
+                            ><span class="item-text"
+                              >spanspek@breede.co.za</span
+                            >
+                          </div>
+                        </div>
+                        <div class="card-text-item">
+                          <div>
+                            <span
+                              data-jam="phone"
+                              data-fill="#000000"
+                              data-width="24"
+                              data-height="24"
+                            ></span
+                            ><span class="item-text">+27 82 321 7154</span>
+                          </div>
+                        </div>
+                        <a class="btn btn-custom" href="http://www.spanspekseplek.co.za/" target="_blank">Book</a>
+                      </div>
+                    </div> 
+                  </div>
                 </div>
+                <!-- Eenuurkop Guest Farm -->
                 <div class="carousel-item">
-                  <img
-                    src="./images/accomodation/Moolmanshof.jpg"
-                    class="d-block w-100"
-                    alt="..."
-                  />
+                  <div class="col-lg-4 col-md-6">
+                    <div class="card">
+                      <img
+                        class="card-img-top"
+                        src="./images/accomodation/eenuurkop.png"
+                        alt="Card image cap"
+                      />
+                      <div class="card-body">
+                        <h4 class="card-title">Eenuurkop Guest Farm</h4>
+                        <div class="card-text-item">
+                          <div>
+                            <span
+                              data-jam="map-marker"
+                              data-fill="#000000"
+                              data-width="24"
+                              data-height="24"
+                            ></span
+                            ><span class="item-text"
+                              >R60, Swellendam, Suid-Afrika</span
+                            >
+                          </div>
+                        </div>
+                        <div class="card-text-item">
+                          <div>
+                            <span
+                              data-jam="ruler"
+                              data-fill="#000000"
+                              data-width="24"
+                              data-height="24"
+                            ></span
+                            ><span class="item-text">9 min (13.4 km)</span>
+                          </div>
+                        </div>
+                        <div class="card-text-item">
+                          <div>
+                            <span
+                              data-jam="envelope"
+                              data-fill="#000000"
+                              data-width="24"
+                              data-height="24"
+                            ></span
+                            ><span class="item-text"
+                              >info@eenuurkop.co.za</span
+                            >
+                          </div>
+                        </div>
+                        <div class="card-text-item">
+                          <div>
+                            <span
+                              data-jam="phone"
+                              data-fill="#000000"
+                              data-width="24"
+                              data-height="24"
+                            ></span
+                            ><span class="item-text">+27 82 956 9461</span>
+                          </div>
+                        </div>
+                        <a class="btn btn-custom" href="http://www.eenuurkop.co.za/" target="_blank">Book</a>
+                      </div>
+                    </div> 
+                  </div>
+                </div>
+                <!-- Leopard Trail -->
+                <div class="carousel-item">
+                  <div class="col-lg-4 col-md-6">
+                    <div class="card">
+                      <img
+                        class="card-img-top"
+                        src="./images/accomodation/leopardsTrail.png"
+                        alt="Card image cap"
+                      />
+                      <div class="card-body">
+                        <h4 class="card-title">Leopard Trail</h4>
+                        <div class="card-text-item">
+                          <div>
+                            <span
+                              data-jam="map-marker"
+                              data-fill="#000000"
+                              data-width="24"
+                              data-height="24"
+                            ></span
+                            ><span class="item-text"
+                              >R60, Bonnievale, Suid-Arika</span
+                            >
+                          </div>
+                        </div>
+                        <div class="card-text-item">
+                          <div>
+                            <span
+                              data-jam="ruler"
+                              data-fill="#000000"
+                              data-width="24"
+                              data-height="24"
+                            ></span
+                            ><span class="item-text">9 min (6.3 km)</span>
+                          </div>
+                        </div>
+                        <div class="card-text-item">
+                          <div>
+                            <span
+                              data-jam="envelope"
+                              data-fill="#000000"
+                              data-width="24"
+                              data-height="24"
+                            ></span
+                            ><span class="item-text"
+                              >leopardtrail@barvallei.co.za</span
+                            >
+                          </div>
+                        </div>
+                        <div class="card-text-item">
+                          <div>
+                            <span
+                              data-jam="phone"
+                              data-fill="#000000"
+                              data-width="24"
+                              data-height="24"
+                            ></span
+                            ><span class="item-text">+27 82 413 4021</span>
+                          </div>
+                        </div>
+                        <a class="btn btn-custom" href="http://www.leopardtrail.co.za/" target="_blank">Book</a>
+                      </div>
+                    </div> 
+                  </div>
+                </div>
+                <!-- Swellendam Country Lodge -->
+                <div class="carousel-item">
+                  <div class="col-lg-4 col-md-6">
+                    <div class="card">
+                      <img
+                        class="card-img-top"
+                        src="./images/accomodation/SwellendamCountryLodge.png"
+                        alt="Card image cap"
+                      />
+                      <div class="card-body">
+                        <h4 class="card-title">Swellendam Country Lodge</h4>
+                        <div class="card-text-item">
+                          <div>
+                            <span
+                              data-jam="map-marker"
+                              data-fill="#000000"
+                              data-width="24"
+                              data-height="24"
+                            ></span
+                            ><span class="item-text"
+                              >237 Voortrek St, Swellendam, Suid-Afrika</span
+                            >
+                          </div>
+                        </div>
+                        <div class="card-text-item">
+                          <div>
+                            <span
+                              data-jam="ruler"
+                              data-fill="#000000"
+                              data-width="24"
+                              data-height="24"
+                            ></span
+                            ><span class="item-text">12 min (16.8 km)</span>
+                          </div>
+                        </div>
+                        <div class="card-text-item">
+                          <div>
+                            <span
+                              data-jam="envelope"
+                              data-fill="#000000"
+                              data-width="24"
+                              data-height="24"
+                            ></span
+                            ><span class="item-text"
+                              >info@swellendamlodge.com</span
+                            >
+                          </div>
+                        </div>
+                        <div class="card-text-item">
+                          <div>
+                            <span
+                              data-jam="phone"
+                              data-fill="#000000"
+                              data-width="24"
+                              data-height="24"
+                            ></span
+                            ><span class="item-text">+27 28 514 3629</span>
+                          </div>
+                        </div>
+                        <a class="btn btn-custom" href="http://www.swellendamlodge.com/" target="_blank">Book</a>
+                      </div>
+                    </div> 
+                  </div>
+                </div>
+                <!-- Old Mill Guest House -->
+                <div class="carousel-item">
+                  <div class="col-lg-4 col-md-6">
+                    <div class="card">
+                      <img
+                        class="card-img-top"
+                        src="./images/accomodation/oldmill.png"
+                        alt="Card image cap"
+                      />
+                      <div class="card-body">
+                        <h4 class="card-title">Old Mill Guest House</h4>
+                        <div class="card-text-item">
+                          <div>
+                            <span
+                              data-jam="map-marker"
+                              data-fill="#000000"
+                              data-width="24"
+                              data-height="24"
+                            ></span
+                            ><span class="item-text"
+                              >241 Voortrek St, Swellendam, Suid-Afrika</span
+                            >
+                          </div>
+                        </div>
+                        <div class="card-text-item">
+                          <div>
+                            <span
+                              data-jam="ruler"
+                              data-fill="#000000"
+                              data-width="24"
+                              data-height="24"
+                            ></span
+                            ><span class="item-text">11 min (16.7 km)</span>
+                          </div>
+                        </div>
+                        <div class="card-text-item">
+                          <div>
+                            <span
+                              data-jam="envelope"
+                              data-fill="#000000"
+                              data-width="24"
+                              data-height="24"
+                            ></span
+                            ><span class="item-text"
+                              >guestcottages@oldmill.co.za</span
+                            >
+                          </div>
+                        </div>
+                        <div class="card-text-item">
+                          <div>
+                            <span
+                              data-jam="phone"
+                              data-fill="#000000"
+                              data-width="24"
+                              data-height="24"
+                            ></span
+                            ><span class="item-text">+27 28 514 2790</span>
+                          </div>
+                        </div>
+                        <a class="btn btn-custom" href="http://www.oldmill.co.za/" target="_blank">Book</a>
+                      </div>
+                    </div> 
+                  </div>
+                </div>
+                <!-- Moolmanshof B&B -->
+                <div class="carousel-item">
+                  <div class="col-lg-4 col-md-6">
+                    <div class="card">
+                      <img
+                        class="card-img-top"
+                        src="./images/accomodation/Moolmanshof.png"
+                        alt="Card image cap"
+                      />
+                      <div class="card-body">
+                        <h4 class="card-title">Moolmanshof B&B</h4>
+                        <div class="card-text-item">
+                          <div>
+                            <span
+                              data-jam="map-marker"
+                              data-fill="#000000"
+                              data-width="24"
+                              data-height="24"
+                            ></span
+                            ><span class="item-text"
+                              >217 Voortrek St, Swellendam, Suid-Afrika</span
+                            >
+                          </div>
+                        </div>
+                        <div class="card-text-item">
+                          <div>
+                            <span
+                              data-jam="ruler"
+                              data-fill="#000000"
+                              data-width="24"
+                              data-height="24"
+                            ></span
+                            ><span class="item-text">12 min (17.0 km)</span>
+                          </div>
+                        </div>
+                        <div class="card-text-item">
+                          <div>
+                            <span
+                              data-jam="envelope"
+                              data-fill="#000000"
+                              data-width="24"
+                              data-height="24"
+                            ></span
+                            ><span class="item-text"
+                              >None</span
+                            >
+                          </div>
+                        </div>
+                        <div class="card-text-item">
+                          <div>
+                            <span
+                              data-jam="phone"
+                              data-fill="#000000"
+                              data-width="24"
+                              data-height="24"
+                            ></span
+                            ><span class="item-text">+27 28 514 3258</span>
+                          </div>
+                        </div>
+                        <a class="btn btn-custom" href="https://www.annascollection.com/moolmanshof/self-catering" target="_blank">Book</a>
+                      </div>
+                    </div> 
+                  </div>
+                </div>
+                <!-- Rothman Manor Guest House -->
+                <div class="carousel-item">
+                  <div class="col-lg-4 col-md-6">
+                    <div class="card">
+                      <img
+                        class="card-img-top"
+                        src="./images/accomodation/RothmansManor.png"
+                        alt="Card image cap"
+                      />
+                      <div class="card-body">
+                        <h4 class="card-title">Rothman Manor Guest House</h4>
+                        <div class="card-text-item">
+                          <div>
+                            <span
+                              data-jam="map-marker"
+                              data-fill="#000000"
+                              data-width="24"
+                              data-height="24"
+                            ></span
+                            ><span class="item-text"
+                              >268 Voortrek St, Swellendam, Suid-Afrika</span
+                            >
+                          </div>
+                        </div>
+                        <div class="card-text-item">
+                          <div>
+                            <span
+                              data-jam="ruler"
+                              data-fill="#000000"
+                              data-width="24"
+                              data-height="24"
+                            ></span
+                            ><span class="item-text">13 min (16.8 km)</span>
+                          </div>
+                        </div>
+                        <div class="card-text-item">
+                          <div>
+                            <span
+                              data-jam="envelope"
+                              data-fill="#000000"
+                              data-width="24"
+                              data-height="24"
+                            ></span
+                            ><span class="item-text"
+                              >info@rothmanmanor.co.za</span
+                            >
+                          </div>
+                        </div>
+                        <div class="card-text-item">
+                          <div>
+                            <span
+                              data-jam="phone"
+                              data-fill="#000000"
+                              data-width="24"
+                              data-height="24"
+                            ></span
+                            ><span class="item-text">+27 28 514 2771</span>
+                          </div>
+                        </div>
+                        <a class="btn btn-custom" href="http://www.rothmanmanor.co.za/" target="_blank">Book</a>
+                      </div>
+                    </div> 
+                  </div>
                 </div>
               </div>
               <a
                 class="carousel-control-prev"
-                href="#accomodation-carousel"
+                href="#accomodation-info-carousel"
                 role="button"
                 data-slide="prev"
               >
-                <span class="dot"
-                  ><span
-                    class="carousel-control-prev-icon"
-                    aria-hidden="true"
-                  ></span
-                ></span>
+              <span class="dot"><span
+                class="carousel-control-prev-icon"
+                aria-hidden="true"
+              ></span>
                 <span class="sr-only">Previous</span>
               </a>
               <a
                 class="carousel-control-next"
-                href="#accomodation-carousel"
+                href="#accomodation-info-carousel"
                 role="button"
                 data-slide="next"
               >
-                <span class="dot"
-                  ><span
-                    class="carousel-control-next-icon"
-                    aria-hidden="true"
-                  ></span
+                <span class="dot"><span
+                  class="carousel-control-next-icon"
+                  aria-hidden="true"
                 ></span>
-
+              </span>
                 <span class="sr-only">Next</span>
               </a>
             </div>
@@ -293,6 +827,13 @@
       </section>
     </section>
     <section id="footer"></section>
+    <span id="backToTopButton" class="dot" onclick="topFunction()" ><span
+      data-jam="chevron-up"
+      data-fill="#FFF"
+      data-width="24"
+      data-height="24"
+    ></span
+    ></span>    
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -302,21 +843,43 @@
       crossorigin="anonymous"
     ></script>
     <script>
-      $(".carousel.carousel-multi-item.v-2 .carousel-item").each(function () {
+      $(".carousel.slide .carousel-item").each(function () {
         var next = $(this).next();
         if (!next.length) {
           next = $(this).siblings(":first");
         }
         next.children(":first-child").clone().appendTo($(this));
 
-        for (var i = 0; i < 4; i++) {
-          next = next.next();
+        for (var i = 0; i < 1; i++) {
+            next = next.next();
           if (!next.length) {
             next = $(this).siblings(":first");
           }
           next.children(":first-child").clone().appendTo($(this));
         }
       });
+
+      //Get the button:
+      backToTopButton = document.getElementById("backToTopButton");
+
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    backToTopButton.style.display = "inline-flex";
+    backToTopButton.style.webkitDisplay = "inline-flex";
+  } else {
+    backToTopButton.style.display = "none";
+    backToTopButton.style.webkitDisplay = "none";
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.body.scrollTop = 0; // For Safari
+  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+}
     </script>
     <script
       src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
