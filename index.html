@@ -56,7 +56,7 @@
             >
             <a class="nav-link" href="#destination-info">Destination</a>
             <a class="nav-link" href="#accomodation-info">Accomodation</a>
-            <button type="button" class="nav-link btn btn-custom">RSVP</button>
+            <button type="button" class="nav-link btn btn-custom" data-toggle="modal" data-target="#RSVPModal">RSVP</button>
           </div>
         </div>
       </nav>
@@ -826,7 +826,10 @@
         </div>
       </section>
     </section>
-    <section id="footer"></section>
+    <section id="footer">
+      <div id="test" style="height:200px; width: 200px; background-color: blue; z-index: 10000000;">test</div>
+      <button onclick="writeTest()"></button>
+    </section>
     <span id="backToTopButton" class="dot" onclick="topFunction()" ><span
       data-jam="chevron-up"
       data-fill="#FFF"
@@ -834,6 +837,55 @@
       data-height="24"
     ></span
     ></span>    
+  
+
+<!-- Modal -->
+<div class="modal fade" id="RSVPModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">RSVP</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Please enter your name
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">RSVP</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-analytics.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-database.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  var firebaseConfig = {
+    apiKey: "AIzaSyBouhxQ9n17fgGP1L5nU3v7B1D0TyR961c",
+    authDomain: "hc-wedding-2021.firebaseapp.com",
+    databaseURL: "https://hc-wedding-2021.firebaseio.com",
+    projectId: "hc-wedding-2021",
+    storageBucket: "hc-wedding-2021.appspot.com",
+    messagingSenderId: "503199872066",
+    appId: "1:503199872066:web:5f69a47d61fe23584969db",
+    measurementId: "G-R15TS4N8QQ"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);  
+  firebase.analytics();
+  var database = firebase.database();
+</script>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -880,6 +932,27 @@ function topFunction() {
   document.body.scrollTop = 0; // For Safari
   document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
 }
+
+function updateTest(test){
+ var testE = document.getElementById('test');
+ testE.innerHTML = test;
+}
+
+function writeTest() {
+  var testE = document.getElementById('test').innerHTML;
+  var newTest = newTest == 'true';
+  console.log(newTest);
+  firebase.database().ref().set({
+      Test: newTest
+  });
+}
+
+var getTestRef = firebase.database().ref('Test');
+
+getTestRef.on('value', function(snapshot) {
+  updateTest(snapshot.val());
+});
+
     </script>
     <script
       src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
