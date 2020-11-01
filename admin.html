@@ -26,7 +26,7 @@
 
     <title>Administration</title>
   </head>
-  <body>
+  <body onload="onInitialize()">
     <section id="header">
       <!-- Navbar -->
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -56,127 +56,198 @@
             >
             <a class="nav-link" href="#destination-info">Destination</a>
             <a class="nav-link" href="#accomodation-info">Accomodation</a>
-            <button type="button" class="nav-link btn btn-custom" data-toggle="modal" data-target="#RSVPModal">RSVP</button>
+            <button
+              type="button"
+              class="nav-link btn btn-custom"
+              data-toggle="modal"
+              data-target="#RSVPModal"
+            >
+              RSVP
+            </button>
           </div>
         </div>
       </nav>
     </section>
     <section id="main-content">
-      <div id="guest-list-table" class="table-responsive">
-        <table class="table table-hover">
-          <thead>
-            <tr>
-              <th scope="col">#</th>
-              <th scope="col">Name</th>
-              <th scope="col">Party</th>
-              <th scope="col">Details</th>
-              <th scope="col">RSVP Response</th>
-              <th scope="col">RSVP Note</th>
-              <th scope="col">Thank You Sent</th>
-              <th scope="col">Group</th>
-            </tr>
-          </thead>
-          <tbody id="guest-list-table-body">                      
-          </tbody>
-        </table>
+      <div class="row">
+        <div class="col-10 mx-auto">
+          <div id="guest-list-search-bar" class="row">
+            <div class="col-6"
+              ><input
+              id="guest-list-search-input"
+                class="form-control"
+                type="text"
+                placeholder="Search.."
+              />
+            </div>
+            <div class="col-2"
+              ><button type="button" onclick="searchGuests()" class="btn btn-custom">
+                Search
+              </button></div
+            >
+          </div>
+          <div id="guest-list-table" class="table-responsive">
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Party</th>
+                  <th scope="col">Details</th>
+                  <th scope="col">RSVP Response</th>
+                  <th scope="col">RSVP Note</th>
+                  <th scope="col">Thank You Sent</th>
+                  <th scope="col">Group</th>
+                </tr>
+              </thead>
+              <tbody id="guest-list-table-body"></tbody>
+            </table>
+          </div>
+        </div>
       </div>
     </section>
-    <section id="footer">
-      
-    </section>
-    <span id="backToTopButton" class="dot" onclick="topFunction()" ><span
-      data-jam="chevron-up"
-      data-fill="#FFF"
-      data-width="24"
-      data-height="24"
-    ></span
+    <section id="footer"></section>
+    <span id="backToTopButton" class="dot" onclick="topFunction()"
+      ><span
+        data-jam="chevron-up"
+        data-fill="#FFF"
+        data-width="24"
+        data-height="24"
+      ></span
     ></span>
-    
-<!-- Modal -->
-<div class="modal fade" id="guest-info-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Guest Info</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
+
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="guest-info-modal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Guest Info</h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="form-group">
+                <label for="input-key">Key</label>
+                <input
+                  type="text"
+                  readonly
+                  class="form-control"
+                  id="input-key"
+                />
+              </div>
+              <div class="form-group">
+                <label for="input-firstName">First Name</label>
+                <input type="text" class="form-control" id="input-firstName" />
+              </div>
+              <div class="form-group">
+                <label for="input-lastName">Last Name</label>
+                <input type="text" class="form-control" id="input-lastName" />
+              </div>
+              <div class="form-group">
+                <label for="input-party">Party</label>
+                <input type="text" class="form-control" id="input-party" />
+              </div>
+              <div class="form-group">
+                <label for="input-phone">Phone</label>
+                <input type="text" class="form-control" id="input-phone" />
+              </div>
+              <div class="form-group">
+                <label for="input-email">Email</label>
+                <input type="text" class="form-control" id="input-email" />
+              </div>
+              <div class="form-group">
+                <label for="input-rsvpResponse">RSVP Response</label>
+                <input
+                  type="text"
+                  readonly
+                  class="form-control"
+                  id="input-rsvpResponse"
+                />
+              </div>
+              <div class="form-group">
+                <label for="input-rsvpNote">RSVP Note</label>
+                <input
+                  type="text"
+                  readonly
+                  class="form-control"
+                  id="input-rsvpNote"
+                />
+              </div>
+              <div class="form-group">
+                <label for="input-thankYouSent">Thank You Sent</label>
+                <input
+                  type="text"
+                  readonly
+                  class="form-control"
+                  id="input-thankYouSent"
+                />
+              </div>
+              <div class="form-group">
+                <label for="input-group">Group</label>
+                <input type="text" class="form-control" id="input-group" />
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-dismiss="modal"
+                >
+                  Close
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-primary"
+                  onclick="createOrUpdateGuest()"
+                  data-dismiss="modal"
+                >
+                  Save
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
       </div>
-      <div class="modal-body">        
-        <form>
-          <div class="form-group">
-            <label for="input-firstName">First Name</label>
-            <input type="text" class="form-control" id="input-firstName">            
-          </div>
-          <div class="form-group">
-            <label for="input-lastName">Last Name</label>
-            <input type="text" class="form-control" id="input-lastName">            
-          </div>
-          <div class="form-group">
-            <label for="input-party">Party</label>
-            <input type="text" class="form-control" id="input-party">            
-          </div>
-          <div class="form-group">
-            <label for="input-phone">Phone</label>
-            <input type="text" class="form-control" id="input-phone">            
-          </div>
-          <div class="form-group">
-            <label for="input-email">Email</label>
-            <input type="text" class="form-control" id="input-email">            
-          </div>
-          <div class="form-group">
-            <label for="input-rsvpResponse">RSVP Response</label>
-            <input type="text" readonly class="form-control" id="input-rsvpResponse">            
-          </div>
-          <div class="form-group">
-            <label for="input-rsvpNote">RSVP Note</label>
-            <input type="text" readonly class="form-control" id="input-rsvpNote">            
-          </div>
-          <div class="form-group">
-            <label for="input-thankYouSent">Thank You Sent</label>
-            <input type="text" readonly class="form-control" id="input-thankYouSent">            
-          </div>
-          <div class="form-group">
-            <label for="input-group">Group</label>
-            <input type="text" class="form-control" id="input-group">            
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="submit" class="btn btn-primary">Save</button>
-          </div>          
-        </form>
-      </div>
-      
     </div>
-  </div>
-</div>
-  
-<!-- The core Firebase JS SDK is always required and must be listed first -->
-<script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js"></script>
 
-<!-- TODO: Add SDKs for Firebase products that you want to use
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#available-libraries -->
-<script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-analytics.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-database.js"></script>
 
-<script>
-  // Your web app's Firebase configuration
-  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-  var firebaseConfig = {
-    apiKey: "AIzaSyBouhxQ9n17fgGP1L5nU3v7B1D0TyR961c",
-    authDomain: "hc-wedding-2021.firebaseapp.com",
-    databaseURL: "https://hc-wedding-2021.firebaseio.com",
-    projectId: "hc-wedding-2021",
-    storageBucket: "hc-wedding-2021.appspot.com",
-    messagingSenderId: "503199872066",
-    appId: "1:503199872066:web:5f69a47d61fe23584969db",
-    measurementId: "G-R15TS4N8QQ"
-  };
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);  
-  firebase.analytics();
-  var database = firebase.database();
-</script>
+    <script>
+      // Your web app's Firebase configuration
+      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+      var firebaseConfig = {
+        apiKey: "AIzaSyBouhxQ9n17fgGP1L5nU3v7B1D0TyR961c",
+        authDomain: "hc-wedding-2021.firebaseapp.com",
+        databaseURL: "https://hc-wedding-2021.firebaseio.com",
+        projectId: "hc-wedding-2021",
+        storageBucket: "hc-wedding-2021.appspot.com",
+        messagingSenderId: "503199872066",
+        appId: "1:503199872066:web:5f69a47d61fe23584969db",
+        measurementId: "G-R15TS4N8QQ",
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      firebase.analytics();
+      var database = firebase.database();
+    </script>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -185,7 +256,7 @@
       integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
       crossorigin="anonymous"
     ></script>
-    <script src="./js/script.js"></script>    
+    <script src="./js/script.js"></script>
     <script
       src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
       integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"

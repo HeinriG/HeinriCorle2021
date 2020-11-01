@@ -16,6 +16,7 @@
   --padding-m: 4rem;
   --padding-l: 6rem;
   --padding-xl: 8rem;
+  --margin-xs: 0.2rem;
   --margin-s: 2rem;
   --margin-m: 4rem;
   --margin-l: 6rem;
@@ -34,6 +35,7 @@ body {
 body{
   font-family: "Ubuntu", sans-serif;
   text-align: center;
+  background-color: var(--color-neutral);
 }
 
 body.home{
@@ -274,4 +276,15 @@ body.home{
   #guest-info-modal .modal-body label {
     display: block;
     text-align: left;
+  }
+
+  /* Admin guest list */
+
+  #guest-list-search-bar {
+    margin-top: var(--margin-s);
+  }
+
+  #guest-list-table {
+    background-color: var(--color-white);
+    margin-top: var(--margin-xs);
   }
