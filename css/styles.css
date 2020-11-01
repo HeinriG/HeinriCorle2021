@@ -31,14 +31,17 @@ body {
   padding: 0px;
 }
 
-body {
+body{
+  font-family: "Ubuntu", sans-serif;
+  text-align: center;
+}
+
+body.home{
   background-image: url("../images/long-grass-bg.png");
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
-  background-size: cover;
-  font-family: "Ubuntu", sans-serif;
-  text-align: center;
+  background-size: cover;  
 }
 
 .row {
@@ -264,4 +267,11 @@ body {
   
   #backToTopButton:hover {
     background-color: #555;
+  }
+
+  /* Admin modal */
+
+  #guest-info-modal .modal-body label {
+    display: block;
+    text-align: left;
   }
