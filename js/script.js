@@ -145,7 +145,7 @@ var getGuest = function (key) {
   });
 };
 
-function searchGuests() {
+function searchGuestTable() {
   var input, filter, table, tr, td, i, txtValue;
   input = document.getElementById("guest-list-search-input");
   filter = input.value.toUpperCase();
@@ -201,4 +201,25 @@ function createOrUpdateGuest() {
   var guestListRef = firebase.database().ref("Guests");
 
   getGuestRefData(guestListRef);
+}
+
+function searchGuests(){
+  var filter = document.getElementById('input-find-invitation').value;
+  console.log(filter)
+  var guestListRef = firebase.database().ref("Guests");
+  guestListRef.on("value", function (snapshot) {
+    var guestsList = [];
+    snapshot.forEach(function (childSnapshot) {
+      var childData = childSnapshot.val();
+      childData.key = childSnapshot.key;
+      guestsList.push(childData);
+    });
+    
+    var filteredGuests = guestsList.filter((guest) => {      
+          return guest.firstName.indexOf(filter) >= 0;
+    })
+
+    console.log(filteredGuests);
+
+  });
 }

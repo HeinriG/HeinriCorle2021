@@ -28,6 +28,50 @@
   --font-cursive: "Italianno", cursive;
 }
 
+/* Utility */
+.margin-top-xs{
+  margin-top: var(--margin-xs)
+}
+
+.margin-top-s{
+  margin-top: var(--margin-s)
+}
+
+.margin-top-m{
+  margin-top: var(--margin-ms)
+}
+
+.margin-top-l{
+  margin-top: var(--margin-l)
+}
+
+.margin-top-xl{
+  margin-top: var(--margin-xl)
+}
+
+.padding-top-xs{
+  padding-top: var(--padding-xs)
+}
+
+.padding-top-s{
+  padding-top: var(--padding-s)
+}
+
+.padding-top-m{
+  padding-top: var(--padding-ms)
+}
+
+.padding-top-l{
+  padding-top: var(--padding-l)
+}
+
+.padding-top-xl{
+  padding-top: var(--padding-xl)
+}
+
+
+
+
 html,
 body {
   width: 100%;
@@ -253,6 +297,11 @@ body.home{
   padding: var(--padding-l) 0;
 }
 
+.nav-link.btn.btn-custom > a {
+  text-decoration-line: none;
+  color: rgba(0,0,0,.5);
+}
+
 /* Navbar */
 
 .navbar {
@@ -475,4 +524,21 @@ body.home{
   #guest-list-table {
     background-color: var(--color-white);
     margin-top: var(--margin-xs);
+  }
+
+  /* RSVP */
+
+  .rsvp-item {
+    padding: var(--padding-m);
+  }
+
+  .rsvp-text-title {
+    font-family: var(--font-cursive);
+    font-size: var(--font-size-xl);
+    line-height: 1;
+  }
+
+  .rsvp-input-text{
+    width:100%;
+    padding: var(--padding-xs);
   }
