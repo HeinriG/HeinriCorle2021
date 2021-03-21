@@ -3,6 +3,8 @@
   --color-secondary: #da8011;
   --color-neutral: #fff;
   --color-neutral-1: #f7f5f1;
+  --color-neutral-2: #e7e7e7;
+  --color-neutral-3: #d4d4d4;
   --color-dark: #000000;
   --color-dark-1: rgb(19, 19, 19);
   --color-secondary-dark: #c27210;
@@ -257,6 +259,18 @@ body.home{
   margin-bottom: var(--margin-xl);
  }
 
+ .shadow-bottom {
+  -webkit-box-shadow:  0 8px 6px -3px rgba(161, 161, 161, 0.4);  /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+  -moz-box-shadow:     0 8px 6px -3px rgba(161, 161, 161, 0.4);  /* Firefox 3.5 - 3.6 */
+  box-shadow:          0 8px 6px -3px rgba(161, 161, 161, 0.4);  /* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */
+}
+
+.shadow-top {
+  -webkit-box-shadow:  inset 0 8px 6px -3px rgba(161, 161, 161, 0.4);  /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+  -moz-box-shadow:     inset 0 8px 6px -3px rgba(161, 161, 161, 0.4);  /* Firefox 3.5 - 3.6 */
+  box-shadow:          inset 0 8px 6px -3px rgba(161, 161, 161, 0.4);  /* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */
+}
+
 /* Buttons */
 
 .btn-custom-primary {
@@ -298,7 +312,7 @@ body.home{
   border-width: 3px;
 }
 
-.nav-link.btn.btn-custom > a {
+.nav-link.btn.btn-custom-primary > a {
   text-decoration-line: none;
   color: rgba(0,0,0,.5);
 }
@@ -313,7 +327,7 @@ body.home{
   margin: 0 var(--margin-s);
 }
 
-.navbar-light .navbar-nav .nav-link.btn-rsvp {
+.navbar-light .navbar-nav .nav-link.btn-custom-primary {
   color: var(--color-neutral);
 }
 
