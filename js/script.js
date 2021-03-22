@@ -23,7 +23,10 @@ backToTopButton = document.getElementById("backToTopButton");
 
 // When the user scrolls down 20px from the top of the document, show the button
 window.onscroll = function () {
-  scrollFunction();
+  if(backToTopButton){
+    scrollFunction();
+  }
+  
 };
 
 function scrollFunction() {
@@ -42,9 +45,7 @@ function topFunction() {
   document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
 }
 
-function onInitializeRSVP() {
-  
-}
+function onInitializeRSVP() {}
 
 function onInitializeAdmin() {
   var guestListRef = firebase.database().ref("Guests");
@@ -153,6 +154,40 @@ var getGuest = function (key) {
   });
 };
 
+var getPartyInvitesForGuest = function (key) {
+  return new Promise(function (resolve, reject) {
+    var guestRef = firebase.database().ref("Guests/" + key);
+    guestRef.on("value", function (snapshot) {
+      var guest = snapshot.val();
+      guest.key = snapshot.key;
+      if (guest) {
+        var currentParty = guest.party;
+        var partyRef = firebase.database().ref("Guests");
+        partyRef.on("value", function (snapshot) {
+          var guestsList = [];
+          snapshot.forEach(function (childSnapshot) {
+            var childData = childSnapshot.val();
+            childData.key = childSnapshot.key;
+            guestsList.push(childData);
+          });
+
+          var filteredGuests = guestsList.filter((guest) => {
+            return guest.party.indexOf(currentParty) >= 0;
+          });
+
+          if (filteredGuests) {
+            resolve(filteredGuests);
+          } else {
+            reject(Error("Party members could not be found!"));
+          }
+        });
+      } else {
+        reject(Error("Guest could not be found!"));
+      }
+    });
+  });
+};
+
 function searchGuestTable() {
   var input, filter, table, tr, td, i, txtValue;
   input = document.getElementById("guest-list-search-input");
@@ -210,7 +245,7 @@ function createOrUpdateGuest() {
   getGuestRefData(guestListRef);
 }
 
-function searchGuests() {
+function searchGuestsForInvites() {
   var filter = document.getElementById("input-find-invitation").value;
   console.log(filter);
   var guestListRef = firebase.database().ref("Guests");
@@ -224,9 +259,10 @@ function searchGuests() {
 
     var filteredGuests = guestsList.filter((guest) => {
       return guest.firstName.indexOf(filter) >= 0;
-    });    
+    });
+    //TODO: Better filter
     console.log(filteredGuests);
-    populateInviteListTable(filteredGuests);    
+    populateInviteListTable(filteredGuests);
     showInviteListStepWindow();
   });
 }
@@ -260,14 +296,14 @@ function populateInviteListTable(inviteListData) {
   var inviteList = document.getElementById("inviteList");
   inviteList.innerHTML = "";
   inviteListData.forEach((invite) => {
-    var guestFullName = invite.firstName + " " + invite.lastName
-    var listItem = document.createElement("label");    
+    var guestFullName = invite.firstName + " " + invite.lastName;
+
     if (guestFullName && !guestFullName.includes("undefined")) {
-      
-      listItem.classList.add("list-group-item");            
-      
+      var listItem = document.createElement("label");
+      listItem.classList.add("list-group-item");
+
       var listItemInput = document.createElement("input");
-      listItemInput.classList.add("form-check-input");        
+      listItemInput.classList.add("form-check-input");
 
       var attrType = document.createAttribute("type");
       attrType.value = "radio";
@@ -275,19 +311,118 @@ function populateInviteListTable(inviteListData) {
 
       var attrValue = document.createAttribute("value");
       attrValue.value = invite.key;
-      listItemInput.setAttributeNode(attrValue.cloneNode(true));  
+      listItemInput.setAttributeNode(attrValue.cloneNode(true));
 
       var attrName = document.createAttribute("name");
       attrName.value = "invite";
-      listItemInput.setAttributeNode(attrName.cloneNode(true));  
+      listItemInput.setAttributeNode(attrName.cloneNode(true));
 
       listItem.appendChild(listItemInput);
 
       listItem.innerHTML = listItem.innerHTML + guestFullName;
 
       inviteList.appendChild(listItem);
-    }    
+    }
   });
 }
 
+function searchPartyInvitesForGuest() {
+  var inviteListOptions = document.getElementsByName("invite");
+  var checkedInviteKey = null;
 
+  inviteListOptions.forEach((inviteOption) => {
+    if (inviteOption.checked) {
+      checkedInviteKey = inviteOption.value;
+      console.log(checkedInviteKey);      
+    }
+  });
+  if (checkedInviteKey) {
+    getPartyInvitesForGuest(checkedInviteKey).then((guests) => {
+      RSVPList = document.getElementById("RSVPList");
+      RSVPList.innerHTML = "";
+
+      guests.forEach((guest) => {
+        var guestNameElement = document.createElement("div");
+        guestNameElement.classList.add("col-6");
+        guestNameElement.classList.add("mx-auto");
+        guestNameElement.classList.add("margin-top-s");
+        guestNameElement.innerHTML = guest.firstName + " " + guest.lastName;
+
+        RSVPList.appendChild(guestNameElement);
+
+        var RSVPOptionsElement = document.createElement("div");
+        RSVPOptionsElement.classList.add("btn-group");
+        RSVPOptionsElement.classList.add("btn-group-toggle");
+        RSVPOptionsElement.classList.add("margin-top-s");
+
+        var attrDataToggle = document.createAttribute("data-toggle");
+        attrDataToggle.value = "buttons";
+        RSVPOptionsElement.setAttributeNode(attrDataToggle.cloneNode(true));
+
+        // Decline button
+        var labelElementDecline = document.createElement("label");
+        labelElementDecline.classList.add("btn");
+        labelElementDecline.classList.add("btn-custom-primary-neutral");        
+
+        var inputElementDecline = document.createElement("input");        
+
+        var attrType = document.createAttribute("type");
+        attrType.value = "radio";
+        inputElementDecline.setAttributeNode(attrType.cloneNode(true));
+
+        var attrValue = document.createAttribute("value");
+        attrValue.value = false;
+        inputElementDecline.setAttributeNode(attrValue.cloneNode(true));
+
+        var attrName = document.createAttribute("name");
+        attrName.value = guest.key;
+        inputElementDecline.setAttributeNode(attrName.cloneNode(true));
+
+        var attrAutocomplete = document.createAttribute("autocomplete");
+        attrAutocomplete.value = "off";
+        inputElementDecline.setAttributeNode(attrAutocomplete.cloneNode(true));
+
+        
+        labelElementDecline.appendChild(inputElementDecline);
+        labelElementDecline.innerHTML = labelElementDecline.innerHTML + 'Decline';
+
+        RSVPOptionsElement.appendChild(labelElementDecline);
+
+        // Accept button
+        var labelElementAccept = document.createElement("label");
+        labelElementAccept.classList.add("btn");
+        labelElementAccept.classList.add("btn-custom-primary-neutral");        
+
+        var inputElementAccept = document.createElement("input");        
+
+        var attrType = document.createAttribute("type");
+        attrType.value = "radio";
+        inputElementAccept.setAttributeNode(attrType.cloneNode(true));
+
+        var attrValue = document.createAttribute("value");
+        attrValue.value = true;
+        inputElementAccept.setAttributeNode(attrValue.cloneNode(true));
+
+        var attrName = document.createAttribute("name");
+        attrName.value = guest.key;
+        inputElementAccept.setAttributeNode(attrName.cloneNode(true));
+
+        var attrAutocomplete = document.createAttribute("autocomplete");
+        attrAutocomplete.value = "off";
+        inputElementAccept.setAttributeNode(attrAutocomplete.cloneNode(true));
+        
+        labelElementAccept.appendChild(inputElementAccept);
+        labelElementAccept.innerHTML = labelElementAccept.innerHTML + 'Accept';
+        
+        RSVPOptionsElement.appendChild(labelElementAccept);
+        //Add to rendered element
+        RSVPList.appendChild(RSVPOptionsElement);
+      });
+
+      
+      
+      showInviteStepWindow()
+    });
+  }
+  //TODO: Add else here if not found
+}

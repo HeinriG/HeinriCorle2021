@@ -26,7 +26,7 @@
 
     <title>RSVP</title>
   </head>
-  <body onload="onInitializeRSVP()">
+  <body>
     <section id="header">
       <!-- Navbar -->
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -86,7 +86,7 @@
           <div class="margin-top-s">
             <button
               type="button"
-              onclick="searchGuests()"
+              onclick="searchGuestsForInvites()"
               class="btn btn-custom-secondary"
             >
               Find invitation
@@ -109,7 +109,7 @@
               </button>
               <button
                 type="button"
-                onclick="showInviteStepWindow()"
+                onclick="searchPartyInvitesForGuest()"
                 class="btn btn-custom-secondary"
               >
                 Continue
@@ -140,15 +140,23 @@
             </div>
           </div>
 
-          <div class="btn-group btn-group-toggle" data-toggle="buttons">
-            <label class="btn btn-custom-primary-neutral">
-              <input type="radio" name="options" id="option1" autocomplete="off" checked> Decline
-            </label>
-            <label class="btn btn-custom-primary-neutral">
-              <input type="radio" name="options" id="option2" autocomplete="off"> Accept
-            </label>            
-          </div>
-
+          
+            <div id="RSVPList" class="row margin-top-s">
+              <div class="col-6 mx-auto">
+                Heinri Germishuys
+              </div>
+              <div class="col-6 mx-auto">
+                <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                  <label class="btn btn-custom-primary-neutral">
+                    <input type="radio" name="options" autocomplete="off" > Decline
+                  </label>
+                  <label class="btn btn-custom-primary-neutral">
+                    <input type="radio" name="options" autocomplete="off" checked> Accept
+                  </label>            
+                </div>
+              </div>              
+            </div>          
+         
           <div class="margin-top-s">
             <span>
               <button

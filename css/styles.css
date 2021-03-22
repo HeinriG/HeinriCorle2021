@@ -325,7 +325,7 @@ body.home{
   border-color: transparent;
 } 
 
-.btn:focus, .btn.focus  { box-shadow: 0 0 0 0.2rem var(--color-neutral-2);}
+.btn:focus, .btn.focus  { box-shadow: 0 0 0 0}
 
 /* Titles */
 
