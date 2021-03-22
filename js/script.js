@@ -1,3 +1,7 @@
+//Global vars
+
+// RSVP wizard
+
 $(".carousel.slide .carousel-item").each(function () {
   var next = $(this).next();
   if (!next.length) {
@@ -38,7 +42,11 @@ function topFunction() {
   document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
 }
 
-function onInitialize() {
+function onInitializeRSVP() {
+  
+}
+
+function onInitializeAdmin() {
   var guestListRef = firebase.database().ref("Guests");
   getGuestRefData(guestListRef);
 }
@@ -156,19 +164,18 @@ function searchGuestTable() {
   for (i = 1; i < tr.length; i++) {
     cells = tr[i].getElementsByTagName("td");
     textValue = "";
-    if (cells){      
+    if (cells) {
       for (j = 0; j < cells.length; j++) {
-        td = cells[j]
-        currTextValue = td.textContent || td.innerText
+        td = cells[j];
+        currTextValue = td.textContent || td.innerText;
         textValue += currTextValue;
       }
       if (textValue.toUpperCase().indexOf(filter) > -1) {
-        tr[i].style.display = "";        
+        tr[i].style.display = "";
       } else {
         tr[i].style.display = "none";
       }
-    }      
-    
+    }
   }
 }
 
@@ -203,9 +210,9 @@ function createOrUpdateGuest() {
   getGuestRefData(guestListRef);
 }
 
-function searchGuests(){
-  var filter = document.getElementById('input-find-invitation').value;
-  console.log(filter)
+function searchGuests() {
+  var filter = document.getElementById("input-find-invitation").value;
+  console.log(filter);
   var guestListRef = firebase.database().ref("Guests");
   guestListRef.on("value", function (snapshot) {
     var guestsList = [];
@@ -214,12 +221,73 @@ function searchGuests(){
       childData.key = childSnapshot.key;
       guestsList.push(childData);
     });
-    
-    var filteredGuests = guestsList.filter((guest) => {      
-          return guest.firstName.indexOf(filter) >= 0;
-    })
 
+    var filteredGuests = guestsList.filter((guest) => {
+      return guest.firstName.indexOf(filter) >= 0;
+    });    
     console.log(filteredGuests);
-
+    populateInviteListTable(filteredGuests);    
+    showInviteListStepWindow();
   });
 }
+
+function showSearchInviteStepWindow() {
+  hideAllStepWindows();
+  stepWindow = document.querySelector("div[stepNumber = '0']");
+  stepWindow.style.display = "";
+}
+
+function showInviteListStepWindow() {
+  hideAllStepWindows();
+  stepWindow = document.querySelector("div[stepNumber = '1']");
+  stepWindow.style.display = "";
+}
+
+function showInviteStepWindow() {
+  hideAllStepWindows();
+  stepWindow = document.querySelector("div[stepNumber = '2']");
+  stepWindow.style.display = "";
+}
+
+function hideAllStepWindows() {
+  stepWindows = document.querySelectorAll("div[stepNumber]");
+  stepWindows.forEach((stepWindow) => {
+    stepWindow.style.display = "none";
+  });
+}
+
+function populateInviteListTable(inviteListData) {
+  var inviteList = document.getElementById("inviteList");
+  inviteList.innerHTML = "";
+  inviteListData.forEach((invite) => {
+    var guestFullName = invite.firstName + " " + invite.lastName
+    var listItem = document.createElement("label");    
+    if (guestFullName && !guestFullName.includes("undefined")) {
+      
+      listItem.classList.add("list-group-item");            
+      
+      var listItemInput = document.createElement("input");
+      listItemInput.classList.add("form-check-input");        
+
+      var attrType = document.createAttribute("type");
+      attrType.value = "radio";
+      listItemInput.setAttributeNode(attrType.cloneNode(true));
+
+      var attrValue = document.createAttribute("value");
+      attrValue.value = invite.key;
+      listItemInput.setAttributeNode(attrValue.cloneNode(true));  
+
+      var attrName = document.createAttribute("name");
+      attrName.value = "invite";
+      listItemInput.setAttributeNode(attrName.cloneNode(true));  
+
+      listItem.appendChild(listItemInput);
+
+      listItem.innerHTML = listItem.innerHTML + guestFullName;
+
+      inviteList.appendChild(listItem);
+    }    
+  });
+}
+
+

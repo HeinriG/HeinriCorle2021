@@ -26,7 +26,7 @@
 
     <title>RSVP</title>
   </head>
-  <body>
+  <body onload="onInitializeRSVP()">
     <section id="header">
       <!-- Navbar -->
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -51,25 +51,28 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav ml-auto">
-            <a class="nav-link" href="./index.html#"
-              >Tuisblad</a
+            <a class="nav-link" href="./index.html#">Tuisblad</a>
+            <a class="nav-link" href="./index.html#destination-info"
+              >Bestemming</a
             >
-            <a class="nav-link" href="./index.html#destination-info">Bestemming</a>
-            <a class="nav-link" href="./index.html#accomodation-info">Akkomodasie</a>
+            <a class="nav-link" href="./index.html#accomodation-info"
+              >Akkomodasie</a
+            >
             <button
               type="button"
-              class="nav-link btn btn-custom-primary"
+              class="nav-link btn btn-custom-secondary"
               data-toggle="modal"
               data-target="#RSVPModal"
             >
-              RSVP
+            <a href="#">RSVP</a>
             </button>
           </div>
         </div>
       </nav>
     </section>
     <section id="main-content">
-      <div class="row margin-y-xl">
+      <!-- Invite Search -->
+      <div stepNumber="0" class="row">
         <div class="col-lg-6 mx-auto rsvp-item">
           <div class="rsvp-text-title">Heinri & Corlé</div>
           <div class="col-md-8 mx-auto">
@@ -82,12 +85,87 @@
           </div>
           <div class="margin-top-s">
             <button
-              type="button"              
+              type="button"
               onclick="searchGuests()"
-              class="btn btn-custom-primary"
+              class="btn btn-custom-secondary"
             >
               Find invitation
             </button>
+          </div>
+        </div>
+      </div>
+      <!-- Invite List -->
+      <div stepNumber="1" class="row" style="display: none">
+        <div class="col-lg-6 mx-auto">
+          <div id="inviteList" class="list-group"></div>
+          <div class="margin-top-s">
+            <span>
+              <button
+                type="button"
+                onclick="showSearchInviteStepWindow()"
+                class="btn btn-custom-secondary-neutral"
+              >
+                Back
+              </button>
+              <button
+                type="button"
+                onclick="showInviteStepWindow()"
+                class="btn btn-custom-secondary"
+              >
+                Continue
+              </button></span
+            >
+          </div>
+        </div>
+      </div>
+      <!-- Invite -->
+      <div stepNumber="2" class="row" style="display: none">
+        <div class="col-lg-6 mx-auto">
+          <div class="col-lg-4 mx-auto">
+            <img
+              class="full-width padding-none"
+              src="./images/logo/Wedding-Monogram.png"
+              alt="wedding-monogram"
+            />
+          </div>
+          <div>
+            <div class="rsvp-text-title">Heinri & Corlé</div>
+            <div>
+              16de Junie
+              <div>2021</div>
+            </div>
+            <div class="margin-top-s">
+              Eensgezind Onthaalsaal
+              <div>Durbanville</div>
+            </div>
+          </div>
+
+          <div class="btn-group btn-group-toggle" data-toggle="buttons">
+            <label class="btn btn-custom-primary-neutral">
+              <input type="radio" name="options" id="option1" autocomplete="off" checked> Decline
+            </label>
+            <label class="btn btn-custom-primary-neutral">
+              <input type="radio" name="options" id="option2" autocomplete="off"> Accept
+            </label>            
+          </div>
+
+          <div class="margin-top-s">
+            <span>
+              <button
+                type="button"
+                onclick="showInviteListStepWindow()"
+                class="btn btn-custom-secondary-neutral"
+              >
+                Back
+              </button>
+              <button
+                type="button"
+                onclick="searchGuests()"
+                class="btn btn-custom-secondary"
+              >
+                Continue
+              </button></span
+            >
           </div>
         </div>
       </div>

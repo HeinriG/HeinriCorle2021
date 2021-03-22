@@ -7,6 +7,8 @@
   --color-neutral-3: #d4d4d4;
   --color-dark: #000000;
   --color-dark-1: rgb(19, 19, 19);
+  --color-primary-dark: #000e35;
+  --color-primary-light: #011d6d; 
   --color-secondary-dark: #c27210;
   --color-secondary-light: #fbd19e;  
   --font-size-s: 1rem;
@@ -273,15 +275,57 @@ body.home{
 
 /* Buttons */
 
-.btn-custom-primary {
+.btn-custom-secondary {
   color: var(--color-neutral);
   background-color: var(--color-secondary);
   border-color: transparent;
 }
 
-.btn-custom-primary:hover { background-color: var(--color-secondary-dark);}
+.btn-custom-secondary:hover { 
+  background-color: var(--color-secondary-dark);
+  color: var(--color-neutral);
+}
 
-.btn:focus { box-shadow: 0 0 0 0.2rem var(--color-secondary-light);}
+.btn-custom-secondary-neutral {
+  color: var(--color-secondary);
+  background-color: var(--color-neutral);
+  border-color: var(--color-secondary);
+}
+
+.btn-custom-secondary-neutral:hover { 
+  background-color: var(--color-neutral-2);  
+  color: var(--color-secondary);
+}
+
+.btn-custom-primary {
+  color: var(--color-neutral);
+  background-color: var(--color-primary);
+  border-color: transparent;
+}
+
+.btn-custom-primary:hover { 
+  background-color: var(--color-primary-dark);
+  color: var(--color-neutral);
+}
+
+.btn-custom-primary-neutral {
+  color: var(--color-primary);
+  background-color: var(--color-neutral);
+  border-color: var(--color-primary);
+}
+
+.btn-custom-primary-neutral:hover { 
+  background-color: var(--color-neutral-2);  
+  color: var(--color-primary);
+}
+
+.btn-group > .active {
+  color: var(--color-neutral);
+  background-color: var(--color-primary);
+  border-color: transparent;
+} 
+
+.btn:focus, .btn.focus  { box-shadow: 0 0 0 0.2rem var(--color-neutral-2);}
 
 /* Titles */
 
@@ -314,7 +358,22 @@ body.home{
 
 .nav-link.btn.btn-custom-primary > a {
   text-decoration-line: none;
-  color: rgba(0,0,0,.5);
+  color: var(--color-neutral);
+}
+
+.nav-link.btn.btn-custom-secondary > a {
+  text-decoration-line: none;
+  color: var(--color-neutral);
+}
+
+.nav-link.btn.btn-custom-primary {
+  text-decoration-line: none;
+  color: var(--color-neutral);
+}
+
+.nav-link.btn.btn-custom-secondary {
+  text-decoration-line: none;
+  color: var(--color-neutral);
 }
 
 /* Navbar */
@@ -327,9 +386,6 @@ body.home{
   margin: 0 var(--margin-s);
 }
 
-.navbar-light .navbar-nav .nav-link.btn-custom-primary {
-  color: var(--color-neutral);
-}
 
 /* Accomodation Carousel */
 
